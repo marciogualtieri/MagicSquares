@@ -14,7 +14,7 @@ class TestPrompt(TestCase):
         odd_number = 3
         with patch.object(magic_squares.entities.prompt, "input", create=True,
                           return_value=odd_number):
-            self.prompt.get_number()
+            self.prompt.get_input()
             self.assertEqual(self.prompt.number, odd_number)
 
     def test_input_number_is_even(self):
@@ -24,5 +24,5 @@ class TestPrompt(TestCase):
 
     def _assert_value_error_exception_(self):
         with self.assertRaises(ValueError) as context:
-            self.prompt.get_number()
+            self.prompt.get_input()
             self.assertTrue('N needs to be an odd integer' in context.exception)

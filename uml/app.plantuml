@@ -1,0 +1,19 @@
+@startuml
+class Prompt {
+    +get_input()
+}
+class Square {
+    +Square()
+    +step_once()
+    +step_to_finish()
+    +Boolean is_magic_square()
+    +String to_string()
+}
+
+class App {
+        +void main()
+}
+
+App *-- Prompt
+App *-- Square
+@enduml

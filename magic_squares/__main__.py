@@ -4,12 +4,14 @@ from magic_squares.entities.square import Square
 
 def main():
     prompt = Prompt()
+    valid_input = False
 
-    try:
-        prompt.get_number()
-    except ValueError:
-        print('Not an odd number. Please try again.')
-        prompt.get_number()
+    while not valid_input:
+        try:
+            prompt.get_input()
+            valid_input = True
+        except ValueError:
+            print('Not an odd number. Please try again.')
 
     square = Square(prompt.number)
     square.step_to_finish()

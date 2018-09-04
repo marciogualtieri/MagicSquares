@@ -2,11 +2,11 @@ class Prompt:
     def __init__(self):
         self.number = None
 
-    def get_number(self):
+    def get_input(self):
         number = int(input("Enter a valid odd integer: "))
-        self.set_number(number)
+        self._set_number_(number)
 
-    def set_number(self, number):
+    def _set_number_(self, number):
         if self._is_valid_input(number):
             self.number = number
         else:
