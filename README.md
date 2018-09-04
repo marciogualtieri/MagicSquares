@@ -18,21 +18,21 @@
 
 This project implements a [magic square](https://en.wikipedia.org/wiki/Magic_square#) generator in Python.
 
-Given the [requirements](./requirements/_HR_-_Hiring__Python_Developer_Assessment.pdf), which outlines the steps for creating odd magic cubes step by step, I reckoned that this would be a good opportunity to show my TDD skills.
+Given the [requirements](./requirements/_HR_-_Hiring__Python_Developer_Assessment.pdf), which outline the steps for creating odd magic cubes step by step, I reckoned that this would be a good opportunity to show my TDD skills.
 
 The project is a hybrid of structured and object-oriented design, the command-line app being structured, but using objects as components.
 
-The primary components are 'Prompt' and 'Square'. 'Prompt' simply captures the input from the user ('N' or the order of the magic square to get generated) and validates it.
+The primary components are 'Prompt' and 'Square'. 'Prompt' simply captures the input from the user ('N' or the order of the magic square to be generated) and validates it. If the input is not a valid odd number, an exception is thrown.
 
-The input is required to be an odd number. The app will keep asking for an input from the user, until a valid odd number is provided.
+The app will keep asking for an input from the user, until a valid odd number is provided.
 
-![App Class Diagram](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/marciogualtieri/MagicSquares/master/uml/app.plantuml)
+![App Class Diagram](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/marciogualtieri/MagicSquares/master/uml/app.plantuml?token=ACkMqzpM9qAMObN4hVQfcQwZSW3ewRNgks5bl3miwA%3D%3D)
 
 Note the method 'step_once()' from 'Square'. This method executes a single iteration (step) described in the requirements.
 
-This makes this project a perfect showcase for TDD development, given that every single one of the steps form the requirements can be made into a test case.
+This makes this project a perfect showcase for TDD development, given that every single one of the steps from the requirements can be made into a test case.
 
-Here are some of them:
+Here are they:
 
 1)
 
@@ -59,21 +59,21 @@ Here are some of them:
 
      test_step_and_gone_off_on_top_of_the_grid_second()
 
-These tests were added exactly in this order, each test completed through a red-green-refactor cycle, that is:
+
+The test methods were named to reflect the step descriptions from the requirements.
+
+These tests were created exactly in this order, each test completed after a full red-green-refactor cycle, that is:
 
 - Add a test.
 - Add stubs to production code so project compiles.
 - Run tests and get failure (red).
 - Complete production code, so all tests pass (green).
 - Refactor until satisfied.
-- Repeat for all steps.
+- Repeat for all steps from the requirements.
 
 All tests can be found in [square_test.py](./test/square_test.py).
 
-Note that the majority of tests mirror the requirements, making it easier to understand.
-
-Additional tests were added for features which are implicit and therefore not outlined in the requirements.
-(for instance, 'Square' should allow building magic squares of different orders, thus there are tests initializing a 'Square' for different values of 'N').
+Additional tests were added for features which are implicit and therefore not outlined in the requirements. For instance, 'Square' should allow building magic squares of different orders, thus there are tests initializing a 'Square' with values of 'N'.
 
 ## Running Tests
 
@@ -83,11 +83,11 @@ Execute the following command using a terminal to run tests:
 
 This app was developed using Python 3.6.3.
 
-If also have Python 2 in your system, you might need to run the following command instead:
+If you also have Python 2 in your system, you might need to run the following command instead:
 
     python3 -m "nose" -vv --nocapture
 
-That's to be sure you are running the app using Python 3.
+That's to be sure that you are running the app using Python 3.
 
 You should get the following output:
 
@@ -124,7 +124,7 @@ Again, if you have multiple versions of Python, you might need to run the follow
 
     python3 -m "magic_squares"
 
-That will make sure that you are executing the app using Python 3.
+Which will make sure that you are executing the app using Python 3.
 
 You should get an output similar to the following:
 
