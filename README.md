@@ -5,8 +5,8 @@
 - [Magic Square Generator](#magic-square-generator)
   - [Overview](#overview)
   - [Running Tests](#running-tests)
-  - [Installing the App](#installing-the-app)
   - [Running the App](#running-the-app)
+  - [Installing the App](#installing-the-app)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -108,23 +108,11 @@ You should get the following output:
     test_step_diagonally_first (test.square_test.TestSquare) ... ok
     test_step_diagonally_second (test.square_test.TestSquare) ... ok
 
-## Installing the App
-
-This project is command-line app. To install it in your system, run the following command:
-
-    sudo python3 setup.py install
-
 ## Running the App
 
-Now you can execute the app as following:
-
-    magic_squares
-
-Again, if you have multiple versions of Python, you might need to run the following command instead:
+To run the app from the project's sources, execute the following command:
 
     python3 -m "magic_squares"
-
-Which will make sure that you are executing the app using Python 3.
 
 You should get an output similar to the following:
 
@@ -151,4 +139,21 @@ Another example:
     11	18	25	2	9
 
     The result matrix is a magic square.
+
+## Installing the App
+
+This project is command-line app. To install it in your system, run the following command:
+
+    sudo python3 setup.py install
+
+Now you can execute the app as following:
+
+    magic_squares
+
+Again, if you have multiple versions of Python, you might need to run the following command instead:
+
+    python3 -m "magic_squares"
+
+Which will make sure that you are executing the app using Python 3.
+
 

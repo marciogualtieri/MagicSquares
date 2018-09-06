@@ -81,8 +81,8 @@
 <ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#running-tests">Running Tests</a></li>
-<li><a href="#installing-the-app">Installing the App</a></li>
 <li><a href="#running-the-app">Running the App</a></li>
+<li><a href="#installing-the-app">Installing the App</a></li>
 </ul>
 </li>
 </ul>
@@ -93,14 +93,14 @@
 <h2>
 <a id="user-content-overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview</h2>
 <p>This project implements a <a href="https://en.wikipedia.org/wiki/Magic_square#" rel="nofollow">magic square</a> generator in Python.</p>
-<p>Given the <a href="./requirements/_HR_-_Hiring__Python_Developer_Assessment.pdf">requirements</a>, which outlines the steps for creating odd magic cubes step by step, I reckoned that this would be a good opportunity to show my TDD skills.</p>
+<p>Given the <a href="./requirements/_HR_-_Hiring__Python_Developer_Assessment.pdf">requirements</a>, which outline the steps for creating odd magic cubes step by step, I reckoned that this would be a good opportunity to show my TDD skills.</p>
 <p>The project is a hybrid of structured and object-oriented design, the command-line app being structured, but using objects as components.</p>
-<p>The primary components are 'Prompt' and 'Square'. 'Prompt' simply captures the input from the user ('N' or the order of the magic square to get generated) and validates it.</p>
-<p>The input is required to be an odd number. The app will keep asking for an input from the user, until a valid odd number is provided.</p>
+<p>The primary components are 'Prompt' and 'Square'. 'Prompt' simply captures the input from the user ('N' or the order of the magic square to be generated) and validates it. If the input is not a valid odd number, an exception is thrown.</p>
+<p>The app will keep asking for an input from the user, until a valid odd number is provided.</p>
 <p><a href="https://camo.githubusercontent.com/fe7dbc7e257aa628f546c34e192e0babd2404212/687474703a2f2f7777772e706c616e74756d6c2e636f6d2f706c616e74756d6c2f70726f78793f63616368653d6e6f267372633d68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f6d617263696f6775616c74696572692f4d61676963537175617265732f6d61737465722f756d6c2f6170702e706c616e74756d6c3f746f6b656e3d41436b4d717a704d3971414d4f624e34685651666351775a5357336577524e676b7335626c336d697741253344253344" target="_blank" rel="nofollow"><img src="https://camo.githubusercontent.com/fe7dbc7e257aa628f546c34e192e0babd2404212/687474703a2f2f7777772e706c616e74756d6c2e636f6d2f706c616e74756d6c2f70726f78793f63616368653d6e6f267372633d68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f6d617263696f6775616c74696572692f4d61676963537175617265732f6d61737465722f756d6c2f6170702e706c616e74756d6c3f746f6b656e3d41436b4d717a704d3971414d4f624e34685651666351775a5357336577524e676b7335626c336d697741253344253344" alt="App Class Diagram" data-canonical-src="http://www.plantuml.com/plantuml/proxy?cache=no&amp;src=https://raw.githubusercontent.com/marciogualtieri/MagicSquares/master/uml/app.plantuml?token=ACkMqzpM9qAMObN4hVQfcQwZSW3ewRNgks5bl3miwA%3D%3D" style="max-width:100%;"></a></p>
 <p>Note the method 'step_once()' from 'Square'. This method executes a single iteration (step) described in the requirements.</p>
-<p>This makes this project a perfect showcase for TDD development, given that every single one of the steps form the requirements can be made into a test case.</p>
-<p>Here are some of them:</p>
+<p>This makes this project a perfect showcase for TDD development, given that every single one of the steps from the requirements can be made into a test case.</p>
+<p>Here are they:</p>
 <ol>
 <li>
 </li>
@@ -149,29 +149,28 @@
 </ol>
 <pre><code> test_step_and_gone_off_on_top_of_the_grid_second()
 </code></pre>
-<p>These tests were added exactly in this order, each test completed through a red-green-refactor cycle, that is:</p>
+<p>The test methods were named to reflect the step descriptions from the requirements.</p>
+<p>These tests were created exactly in this order, each test completed after a full red-green-refactor cycle, that is:</p>
 <ul>
 <li>Add a test.</li>
 <li>Add stubs to production code so project compiles.</li>
 <li>Run tests and get failure (red).</li>
 <li>Complete production code, so all tests pass (green).</li>
 <li>Refactor until satisfied.</li>
-<li>Repeat for all steps.</li>
+<li>Repeat for all steps from the requirements.</li>
 </ul>
 <p>All tests can be found in <a href="./test/square_test.py">square_test.py</a>.</p>
-<p>Note that the majority of tests mirror the requirements, making it easier to understand.</p>
-<p>Additional tests were added for features which are implicit and therefore not outlined in the requirements.
-(for instance, 'Square' should allow building magic squares of different orders, thus there are tests initializing a 'Square' for different values of 'N').</p>
+<p>Additional tests were added for features which are implicit and therefore not outlined in the requirements. For instance, 'Square' should allow building magic squares of different orders, thus there are tests initializing a 'Square' with values of 'N'.</p>
 <h2>
 <a id="user-content-running-tests" class="anchor" href="#running-tests" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running Tests</h2>
 <p>Execute the following command using a terminal to run tests:</p>
 <pre><code>nosetests -vv --nocapture
 </code></pre>
 <p>This app was developed using Python 3.6.3.</p>
-<p>If also have Python 2 in your system, you might need to run the following command instead:</p>
+<p>If you also have Python 2 in your system, you might need to run the following command instead:</p>
 <pre><code>python3 -m "nose" -vv --nocapture
 </code></pre>
-<p>That's to be sure you are running the app using Python 3.</p>
+<p>That's to be sure that you are running the app using Python 3.</p>
 <p>You should get the following output:</p>
 <pre><code>test_input_number_is_even (test.prompt_test.TestPrompt) ... ok
 test_input_number_is_odd (test.prompt_test.TestPrompt) ... ok
@@ -191,19 +190,10 @@ test_step_diagonally_first (test.square_test.TestSquare) ... ok
 test_step_diagonally_second (test.square_test.TestSquare) ... ok
 </code></pre>
 <h2>
-<a id="user-content-installing-the-app" class="anchor" href="#installing-the-app" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installing the App</h2>
-<p>This project is command-line app. To install it in your system, run the following command:</p>
-<pre><code>sudo python3 setup.py install
-</code></pre>
-<h2>
 <a id="user-content-running-the-app" class="anchor" href="#running-the-app" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running the App</h2>
-<p>Now you can execute the app as following:</p>
-<pre><code>magic_squares
-</code></pre>
-<p>Again, if you have multiple versions of Python, you might need to run the following command instead:</p>
+<p>To run the app from the project's sources, execute the following command:</p>
 <pre><code>python3 -m "magic_squares"
 </code></pre>
-<p>That will make sure that you are executing the app using Python 3.</p>
 <p>You should get an output similar to the following:</p>
 <pre><code>$ python3 -m "magic_squares"
 Enter a valid odd integer: 3
@@ -228,6 +218,18 @@ The result matrix for N=5 is:
 
 The result matrix is a magic square.
 </code></pre>
+<h2>
+<a id="user-content-installing-the-app" class="anchor" href="#installing-the-app" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installing the App</h2>
+<p>This project is command-line app. To install it in your system, run the following command:</p>
+<pre><code>sudo python3 setup.py install
+</code></pre>
+<p>Now you can execute the app as following:</p>
+<pre><code>magic_squares
+</code></pre>
+<p>Again, if you have multiple versions of Python, you might need to run the following command instead:</p>
+<pre><code>python3 -m "magic_squares"
+</code></pre>
+<p>Which will make sure that you are executing the app using Python 3.</p>
 
               </article>
             </div>
