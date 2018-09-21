@@ -18,9 +18,7 @@
 
 This project implements a [magic square](https://en.wikipedia.org/wiki/Magic_square#) generator in Python.
 
-Given the [requirements](./requirements/_HR_-_Hiring__Python_Developer_Assessment.pdf), which outline the steps for creating odd magic cubes step by step, I reckoned that this would be a good opportunity to show my TDD skills in action.
-
-The project is a hybrid of structured and object-oriented design, the command-line app being structured, but using objects as components.
+I reckoned that this would be a good opportunity to show my TDD skills in action. The project is a hybrid of structured and object-oriented design, the command-line app being structured, but using objects as components.
 
 The primary components are 'Prompt' and 'Square'. 'Prompt' simply captures the input from the user ('N' or the order of the magic square to be generated) and validates it. If the input is not a valid odd number, an exception is thrown.
 
